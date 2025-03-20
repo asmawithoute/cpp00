@@ -1,28 +1,17 @@
 #include <iostream>
-#include <cstdlib>
 
 void writeinup(char *arg)
 {
-    int x = 0;
-    char c;
-
-    while(arg[x])
-    {
-        c = toupper(arg[x]);
-        printf("%c", c);
-        x++;
-    }
+    for(int i=0; arg[i]; i++)
+        std::cout << char(toupper(arg[i]));
 }
 
-int main( int argc, char **argv)
+int main(int argc, char **argv)
 {
-    int x = 1;
-
-    while(x < argc)
-    {
-        writeinup(argv[x]);
-        x++;
-    }
-    printf("\n");
+    if (argc == 1)
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+    for(int i = 1; i < argc; i++)
+        writeinup(argv[i]);
+    std::cout << std::endl;
     return 0;
 }
