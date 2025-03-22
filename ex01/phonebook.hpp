@@ -18,7 +18,13 @@ class PhoneBook
     public :
         Contact mycontacts[8];
         int num_of_contacts;
+        PhoneBook();
 };
+
+PhoneBook::PhoneBook()
+{
+    this->num_of_contacts = 0;
+}
 
 
 

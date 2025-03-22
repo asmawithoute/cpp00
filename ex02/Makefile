@@ -1,16 +1,26 @@
-NAME = ACCOUNT
-SRC = account.cpp tests.cpp
 CC = c++
-FLAGS = #X-Wall -Wextra -Werror -std=c++98
 
-all: $(NAME)
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
-$(NAME): $(SRC)
-	$(CC) $(SRC) -o $(NAME)
+FILES = tests.cpp Account.cpp
 
-clean:
-	rm -rf $(NAME)
+OBJ = $(FILES:.cpp=.o)
 
-fclean: clean
+NAME = account
 
-re: fclean all
+all : $(NAME)
+
+$(NAME)	:	$(OBJ)
+			$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+
+
+# %.o: %.cpp
+#     		$(CC) $(FLAGS) -c $< -o $@
+
+clean :
+		rm -rf $(OBJ)
+
+re: clean all
+
+fclean : clean
+		rm -rf $(NAME)

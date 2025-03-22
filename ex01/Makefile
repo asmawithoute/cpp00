@@ -1,7 +1,7 @@
 NAME = PHONEBOOK
-SRC = phonebook.cpp
+SRC = Phonebook.cpp
 CC = c++
-FLAGS = #X-Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

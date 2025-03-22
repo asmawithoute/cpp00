@@ -3,8 +3,6 @@
 int main()
 {
     PhoneBook phonebook;
-
-    phonebook.num_of_contacts = 0;
     std::string input;
 
     std::cout << "welcome to the phonebook\n";
