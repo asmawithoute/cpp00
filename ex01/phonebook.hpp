@@ -31,13 +31,15 @@ PhoneBook::PhoneBook()
 void    add(PhoneBook* phone)
 {
     Contact cont;
-    std::string input{};
+    std::string input;
 
     std::cout << "enter a new contact : " << std::endl;
     std::cout << "plz enter a first name : " << std::endl;
     getline(std::cin, input);
     while (input.empty())
     {
+        if (std::cin.eof())
+            exit(0);
         std::cout << "plz enter a first name : " << std::endl;
         getline(std::cin, input);
     }
@@ -46,6 +48,8 @@ void    add(PhoneBook* phone)
     getline(std::cin, input);
     while (input.empty())
     {
+        if (std::cin.eof())
+            exit(0);
         std::cout << "plz enter a last name : " << std::endl;
         getline(std::cin, input);
     }
@@ -54,6 +58,8 @@ void    add(PhoneBook* phone)
     getline(std::cin, input);
     while (input.empty())
     {
+        if (std::cin.eof())
+            exit(0);
         std::cout << "plz enter a nickname : " << std::endl;
         getline(std::cin, input);
     }
@@ -62,6 +68,8 @@ void    add(PhoneBook* phone)
     getline(std::cin, input);
     while (input.empty())
     {
+        if (std::cin.eof())
+            exit(0);
         std::cout << "plz enter a phone number : " << std::endl;
         getline(std::cin, input);
     }
@@ -70,6 +78,8 @@ void    add(PhoneBook* phone)
     getline(std::cin, input);
     while (input.empty())
     {
+        if (std::cin.eof())
+            exit(0);
         std::cout << "plz enter the contact's darkest secret : " << std::endl;
         getline(std::cin, input);
     }

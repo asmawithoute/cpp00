@@ -2,9 +2,9 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-FILES = tests.cpp Account.cpp
+SRC = tests.cpp Account.cpp
 
-OBJ = $(FILES:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
 NAME = account
 
@@ -14,8 +14,8 @@ $(NAME)	:	$(OBJ)
 			$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 
-# %.o: %.cpp
-#     		$(CC) $(FLAGS) -c $< -o $@
+%.o : %.cpp
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean :
 		rm -rf $(OBJ)

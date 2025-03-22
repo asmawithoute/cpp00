@@ -10,7 +10,7 @@ int main()
     {
         std::cout << "enter 'ADD to add a new contact , 'SEARCH' to search for existing contacts or 'EXIT' to exit from the phonebook\n";
         getline(std::cin , input);
-        if (input == "EXIT")
+        if (input == "EXIT" || std::cin.eof())
             exit(0);
         if (input == "ADD")
             add(&phonebook);
