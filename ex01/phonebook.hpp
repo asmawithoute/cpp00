@@ -18,12 +18,14 @@ class PhoneBook
     public :
         Contact mycontacts[8];
         int num_of_contacts;
+        int index;
         PhoneBook();
 };
 
 PhoneBook::PhoneBook()
 {
     this->num_of_contacts = 0;
+    this->index = 0;
 }
 
 
@@ -85,10 +87,13 @@ void    add(PhoneBook* phone)
     }
     cont.darkest_secret = input;
     std::cout << "contact added successfully !!!" << std::endl;
-    phone->mycontacts[phone->num_of_contacts] = cont;
+    if(phone->index == 8)
+        phone->index = 0;
+    phone->mycontacts[phone->index] = cont;
+    phone->index++;
     phone->num_of_contacts++;
-    if(phone->num_of_contacts == 8)
-    phone->num_of_contacts = 0;
+    if (phone->num_of_contacts > 8)
+        phone->num_of_contacts = 8;
 }
 
 void    search(PhoneBook *phone)
