@@ -73,11 +73,13 @@ void    add(PhoneBook* phone)
     phone->num_of_contacts++;
     if(phone->num_of_contacts == 8)
     phone->num_of_contacts = 0;
-    // std::cin.clear();
 }
 
 void    search(PhoneBook *phone)
 {
+    std::string fname;
+    std::string lname;
+    std::string nname;
     int input;
     if (phone->num_of_contacts == 0)
     {
@@ -85,7 +87,22 @@ void    search(PhoneBook *phone)
         return;
     }
     for (int i = 0; i < phone->num_of_contacts; i++)
-        std::cout << std::setw(10) << std::right << i << "|" << std::setw(10) << std::right << phone->mycontacts[i].first_name << "|" << std::setw(10) << std::right << phone->mycontacts[i].last_name << "|" << std::setw(10) << std::right << phone->mycontacts[i].nickname << std::endl;
+    {
+        fname = phone->mycontacts[i].first_name;
+        lname = phone->mycontacts[i].last_name;
+        nname = phone->mycontacts[i].nickname;
+        if (fname.length() > 9)
+            fname = phone->mycontacts[i].first_name.substr(0, 9) + ".";
+        if (lname.length() > 9)
+            lname = phone->mycontacts[i].last_name.substr(0, 9) + ".";
+        if (nname.length() > 9)
+            nname = phone->mycontacts[i].nickname.substr(0, 9) + ".";
+        std::cout << std::setw(10) << std::right << i << "|" ;
+        std::cout << std::setw(10) << std::right << fname << "|";
+        std::cout << std::setw(10) << std::right << lname << "|" ;
+        std::cout << std::setw(10) << std::right << nname << std::endl;
+
+    }
     std::cout << "enter an index" << std::endl;
     std::cin >> input;
     if (std::cin.fail())
@@ -95,7 +112,7 @@ void    search(PhoneBook *phone)
         std::cin.ignore(1000, '\n');
         return;
     }
-    else if (input < phone->num_of_contacts && input > 0)
+    else if (input < phone->num_of_contacts && input >= 0)
     {
         std::cout << "first name : " << phone->mycontacts[input].first_name << std::endl;
         std::cout << "last name : " << phone->mycontacts[input].last_name << std::endl;
@@ -105,37 +122,7 @@ void    search(PhoneBook *phone)
     }
     else
         std::cout << "contact doesn't exist" << std::endl;
-    std::cin.clear();
+    // std::cin.clear();
     std::cin.ignore(1000, '\n');
-
     return;
-}   
-
-int main()
-{
-    PhoneBook phonebook;
-
-    phonebook.num_of_contacts = 0;
-    std::string input;
-
-    std::cout << "welcome to the phonebook\n";
-    std::cout << "enter 'add' to add a new contact or 'search' to search for existing contacts\n";
-    getline(std::cin , input);
-    while (input != "exit")
-    {
-        if (input == "add")
-            add(&phonebook);
-        else if (input == "search")
-            search(&phonebook);
-        else
-        {
-            std::cout << "cmd doesn't exist !  "<< input << std::endl;
-            std::cin.clear();
-            std::cin.ignore(1000, '\n');
-        }
-        std::cout << "enter 'add' to add a new contact or 'search' to search for existing contacts\n";
-        getline(std::cin , input);
-    } 
-    exit(0);
-    return 0;
 }
