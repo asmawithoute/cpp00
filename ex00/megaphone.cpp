@@ -3,7 +3,7 @@
 void writeinup(char *arg)
 {
     for(int i=0; arg[i]; i++)
-        std::cout << char(toupper(arg[i]));
+        std::cout <<  char(toupper(arg[i]));
 }
 
 int main(int argc, char **argv)
