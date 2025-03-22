@@ -112,11 +112,11 @@ void    search(PhoneBook *phone)
         fname = phone->mycontacts[i].first_name;
         lname = phone->mycontacts[i].last_name;
         nname = phone->mycontacts[i].nickname;
-        if (fname.length() > 9)
+        if (fname.length() > 10)
             fname = phone->mycontacts[i].first_name.substr(0, 9) + ".";
-        if (lname.length() > 9)
+        if (lname.length() > 10)
             lname = phone->mycontacts[i].last_name.substr(0, 9) + ".";
-        if (nname.length() > 9)
+        if (nname.length() > 10)
             nname = phone->mycontacts[i].nickname.substr(0, 9) + ".";
         std::cout << std::setw(10) << std::right << i << "|" ;
         std::cout << std::setw(10) << std::right << fname << "|";
