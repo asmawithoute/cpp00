@@ -2,7 +2,7 @@ CC = c++
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = Phonebook.cpp
+SRC = Phonebook.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
